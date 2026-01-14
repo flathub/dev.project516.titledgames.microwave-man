@@ -23,7 +23,7 @@ modules:
 
       - type: file
         url: https://github.com/TitledGames/Microwave-Man/releases/download/1.1.0/Microwave-Man.pck
-        sha256: sha256:91025fe54737d835677eaf09c6d00c15aae848c385b183b2f08c69e749fca006
+        sha256: 91025fe54737d835677eaf09c6d00c15aae848c385b183b2f08c69e749fca006
         dest-filename: Microwave-Man.pck
 
     build-commands:
