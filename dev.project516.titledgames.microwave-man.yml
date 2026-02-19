@@ -1,10 +1,8 @@
 id: dev.project516.titledgames.microwave-man
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
-base: org.godotengine.godot.BaseApp
-base-version: '4.6'
 sdk: org.freedesktop.Sdk
-command: godot-runner
+command: microwave-man 
 
 finish-args:
   - --share=ipc
@@ -21,14 +19,16 @@ modules:
         url: https://github.com/TitledGames/Microwave-Man.git
         commit: 4b8eb930f9410b8cad651cb52321f53f53b8b327
 
-      - type: file
-        url: https://github.com/TitledGames/Microwave-Man/releases/download/1.2.0/Microwave-Man.pck
-        sha256: 7eb476986dd2a3c7d211f1a2a20ee6cd363b79cd6721ade244e598c582281fdb
-        dest-filename: microwave-man.pck
+      - type: archive
+        url: https://github.com/TitledGames/Microwave-Man/releases/download/1.2.0/Microwave-Man-Linux.zip
+        sha256: f7651119ac95b3ce558bd9e122ce879b1c59438a7710fa0ac891e344973c0ec2
+        dest: game-release 
 
     build-commands:
-      - install -Dm644 microwave-man.pck ${FLATPAK_DEST}/bin/godot-runner.pck
+      - install -Dm755 game-release/Microwave-Man-Linux.x86_64 ${FLATPAK_DEST}/bin/microwave-man
       
+      - cp -r addons ${FLATPAK_DEST}/bin/
+            
       - install -Dm644 flathub/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 flathub/${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
       - install -Dm644 flathub/${FLATPAK_ID}.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.png
