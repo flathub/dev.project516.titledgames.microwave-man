@@ -19,11 +19,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/TitledGames/Microwave-Man.git
-        commit: 4b8eb930f9410b8cad651cb52321f53f53b8b327
+        commit: cad119da0d8662e237e1a4d3a973305e0e07a9d0
       
       - type: file
-        url: https://github.com/TitledGames/Microwave-Man/releases/download/1.2.0/Microwave-Man.pck
-        sha256: 7eb476986dd2a3c7d211f1a2a20ee6cd363b79cd6721ade244e598c582281fdb
+        url: https://github.com/TitledGames/Microwave-Man/releases/download/1.3.0/Microwave-Man.pck
+        sha256: 7ff15403ba4e12829901f9bff1d409dd71eb51c6e81766225ab930a60d766875
         dest-filename: microwave-man.pck
         
     build-commands:
