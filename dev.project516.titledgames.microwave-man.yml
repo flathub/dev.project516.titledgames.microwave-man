@@ -2,7 +2,7 @@ id: dev.project516.titledgames.microwave-man
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 base: org.godotengine.godot.BaseApp
-base-version: '4.6'
+base-version: '4.7'
 sdk: org.freedesktop.Sdk
 command: godot-runner
 
@@ -19,17 +19,26 @@ modules:
     sources:
       - type: git
         url: https://github.com/TitledGames/Microwave-Man.git
-        commit: 619544b21b673ddfdbfce2ce4044e8bd328892fc
+        commit: TODO-2.0.0-master-commit
       
       - type: file
-        url: https://github.com/TitledGames/Microwave-Man/releases/download/1.4.1/Microwave-Man.pck
-        sha256: a0e4385698740037082bb189cc520a3b9929f05f4aced337c3e0dfe762136a7a
+        url: https://github.com/TitledGames/Microwave-Man/releases/download/2.0.0/Microwave-Man.pck
+        sha256: TODO-2.0.0-x86_64-pck-sha256
         dest-filename: microwave-man.pck
+        only-arches:
+          - x86_64
+
+      - type: file
+        url: https://github.com/TitledGames/Microwave-Man/releases/download/2.0.0/Microwave-Man-arm64.pck
+        sha256: TODO-2.0.0-arm64-pck-sha256
+        dest-filename: microwave-man.pck
+        only-arches:
+          - aarch64
         
     build-commands:
       - install -Dm644 microwave-man.pck ${FLATPAK_DEST}/bin/godot-runner.pck
       
-      - cp -r addons ${FLATPAK_DEST}/bin/
+      - if [ "${FLATPAK_ARCH}" = x86_64 ]; then cp -r addons ${FLATPAK_DEST}/bin/; fi
       
       - install -Dm644 flathub/${FLATPAK_ID}.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 flathub/${FLATPAK_ID}.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
